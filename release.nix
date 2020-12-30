@@ -1,3 +1,5 @@
-with import <nixpkgs> {};
-with pkgs;
-callPackage ./default.nix {}
+let
+  sources = import ./nix/sources.nix {};
+  pkgs = import sources.nixpkgs {};
+in
+  pkgs.callPackage ./default.nix {}

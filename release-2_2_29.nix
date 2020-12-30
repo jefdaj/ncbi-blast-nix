@@ -1,10 +1,12 @@
-with import <nixpkgs> {};
-with pkgs;
+let
+  sources = import ./nix/sources.nix {};
+  pkgs = import sources.nixpkgs {};
+in
 
 # crb-blast only supports exactly 2.2.29
 # and there are reports of a bug in newer ones (TODO still?)
 
-(callPackage ./default.nix {}).overrideDerivation (old: rec {
+(pkgs.callPackage ./default.nix {}).overrideDerivation (old: rec {
   version="2.2.29";
   name="ncbi-blast-${version}";
   src = if pkgs.stdenv.hostPlatform.system == "x86_64-darwin"
