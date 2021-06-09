@@ -28,7 +28,7 @@ git:
 
 script:
   - nix-build release.nix
-  . ./result/bin/blastn -help
+  - ./result/bin/blastn -help
 
 notifications:
   email:
