@@ -35,7 +35,7 @@
         defaultPackage = packages.ncbi-blast;
         packages = rec {
           "ncbi-blast"        = nixpkgs.legacyPackages.${system}.pythonPackages.callPackage ./default.nix { };
-          "ncbi-blast-2.2.29" = defaultPackage.overrideDerivation (_: oldAttrs system);
+          "ncbi-blast-2_2_29" = defaultPackage.overrideDerivation (_: oldAttrs system);
         };
 
       }
